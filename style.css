@@ -64,9 +64,7 @@ article h3 {
   align-items: center; 
 }
 
-p {
-  margin-bottom: 16px;
-}
+
 
 ul li {
   list-style-position: inside;
@@ -81,6 +79,10 @@ header {
   justify-content: center;
   padding: 20px;
 }
+
+* {
+    box-sizing: border-box;
+  }
 
 header h1 {
   font-size: 24px;
@@ -125,7 +127,11 @@ nav a:hover {
 }
 
 /* Seções */
-
+#curiosidades ul{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
 #curiosidades li::marker {
   content: '🔍';
 }
@@ -153,17 +159,9 @@ nav a:hover {
   width: 100%; 
 }
 #info-squirtle img {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap; 
-  justify-content: center; 
-  text-align: center;
-  padding: 10px;
-  margin-bottom: 20px;
-  margin: 0 auto; 
-  height: auto; 
-  width: 25%; 
-  
+    width: 150px;
+    height: 150px;
+    align-self: center;
 }
             
 #evolucao figcaption {
@@ -195,7 +193,9 @@ footer {
   background-color: #343a40;
   color: #fff;
   padding: 20px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   bottom: 0;
 }
 
@@ -220,3 +220,11 @@ footer a[href]:hover {
   opacity: 0.8;
 }
 
+#SquirtlesFotos{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+#suit2 { 
+    padding: 35px;
+}
