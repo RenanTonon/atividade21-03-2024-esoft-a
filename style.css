@@ -1,3 +1,4 @@
+/* Reset de estilos para garantir consistência em diferentes navegadores */
 body,
 h1,
 h2,
@@ -26,9 +27,9 @@ body {
 }
 
 main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
 }
 
 main > section {
@@ -37,7 +38,6 @@ main > section {
 
 main section,
 main article {
-  width: 80vw;
   color: black;
   background-color: #fff;
   padding: 20px;
@@ -99,6 +99,7 @@ nav a {
   text-decoration: none;
   color: #fff;
   font-weight: bold;
+  transition: color 1s;
 }
 
 nav a:hover {
@@ -117,6 +118,10 @@ nav a:hover {
   width: 150px;
   height: 150px;
   align-self: center;
+  transition: transform 1s;
+}
+#info-squirtle img:hover{
+  transform: scale(1.1);
 }
 
 #info-squirtle img:nth-of-type(2) {
@@ -143,8 +148,11 @@ nav a:hover {
 #evolucao img {
   height: 150px;
   width: 150px;
+  transition: transform 1s;
 }
-
+#evolucao img:hover{
+  transform: scale(1.1);
+}
 #evolucao figcaption {
   font-weight: 600;
   font-size: 20px;
@@ -180,15 +188,17 @@ footer {
   flex-direction: column;
   gap: 16px;
   align-items: center;
+  transition: opacity 400ms;;
 }
 
 footer p {
   margin-bottom: 0;
+  transition: color 1s;
 }
 
 footer a {
   text-decoration: none;
-  transition: color 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 }
 
 footer a[href*='#'] {
@@ -204,5 +214,11 @@ footer a[href*='tel'] {
 }
 
 footer a[href]:hover {
-  opacity: 0.8;
+  opacity: 0.4;
+}
+
+@media (max-width: 600px) {
+  body {
+  background-color: rgb(173, 230, 178);
+  }
 }
