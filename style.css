@@ -218,7 +218,33 @@ footer a[href]:hover {
 }
 
 @media (max-width: 600px) {
-  body {
-  background-color: rgb(173, 230, 178);
+  main {
+    display:grid;
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+  nav  {
+    display: flex;
+    flex-direction: column;
+  }
+  #evolucao ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    list-style: none;
+    align-items: center;
+  }
+  #evolucao figcaption {
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 16px;
+  }
+  header h1 {
+    font-size: 20px;
+  }
+  section h2 {
+    font-size: 18px;
   }
 }
