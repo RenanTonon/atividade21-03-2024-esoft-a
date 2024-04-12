@@ -55,3 +55,18 @@ function changePageTitle(title) {
   document.addEventListener('DOMContentLoaded', function () {
     getSearchParams()
   })
+
+  let data = new Date()
+  let dataComplet = new Intl.DateTimeFormat('pt-br',{
+    day: "numeric",
+    hour:"numeric",
+    mouth: "numeric"
+  }).format(data)
+
+  function createPP(data){
+    let footer = document.querySelector("footer")
+    let p = document.createElement('p')
+    p.textContent = `O site foi atualizado x na no dia ${data}`
+    footer.appendChild(p)
+    
+  }
