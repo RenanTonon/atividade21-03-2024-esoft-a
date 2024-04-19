@@ -2,20 +2,31 @@ function changePageTitle(title) {
     document.title = title
   }
   
-  function generateInfoSection(src, pokemonName) {
+  function generateInfoSection(sprites, pokemonName) {
+    const imagens = Object.values(sprites)
+      .filter(sprite => typeof sprite === 'string')
+  
     const h2 = document.createElement('h2')
     h2.id = "info-pokemon-label"
     h2.textContent = `Informações sobre ${pokemonName}`
   
     const img = document.querySelector('img')
-    img.src = src
+    img.src = imagens[0]
     img.alt = `Imagem do pokemon ${pokemonName}`
   
     const section = document.querySelector('#info-pokemon')
   
     section.appendChild(h2)
     section.appendChild(img)
+  
+    let indiceAtual = 0;
+  
+    img.addEventListener('click', () => {
+      indiceAtual = (indiceAtual + 1) % imagens.length;
+      img.src = imagens[indiceAtual];
+    });
   }
+  
   
   async function getPokemonData(name) {
     // fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
@@ -30,7 +41,7 @@ function changePageTitle(title) {
   
       const jsonData = await data.json()
   
-      generateInfoSection(jsonData.sprites.front_default, name)
+      generateInfoSection(jsonData.sprites, name)
     } catch (error) {
       console.error(error)
     }
@@ -55,18 +66,3 @@ function changePageTitle(title) {
   document.addEventListener('DOMContentLoaded', function () {
     getSearchParams()
   })
-
-  let data = new Date()
-  let dataComplet = new Intl.DateTimeFormat('pt-br',{
-    day: "numeric",
-    hour:"numeric",
-    mouth: "numeric"
-  }).format(data)
-
-  function createPP(data){
-    let footer = document.querySelector("footer")
-    let p = document.createElement('p')
-    p.textContent = `O site foi atualizado x na no dia ${data}`
-    footer.appendChild(p)
-    
-  }
